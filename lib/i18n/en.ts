@@ -17,6 +17,11 @@ export const en = {
     headline: "We make your life easy.",
     subhead:
       "Excel, software, apps, websites, and AI automation built around your business, not generic templates.",
+    stats: [
+      { value: 5, suffix: "", label: "product lines" },
+      { value: 4, suffix: "", label: "projects already delivered" },
+      { value: 2, suffix: "", label: "languages available" },
+    ],
     searchLabel: "What do you want to solve today?",
     searchPlaceholder: "E.g: I keep losing track of my inventory…",
     searchHint: "Describe the problem in your own words, no jargon needed.",

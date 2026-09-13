@@ -54,10 +54,25 @@ const config: Config = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "orbit-spin": {
+          "0%": { transform: "rotateZ(0deg)" },
+          "100%": { transform: "rotateZ(360deg)" },
+        },
+        "orbit-spin-reverse": {
+          "0%": { transform: "rotateZ(360deg)" },
+          "100%": { transform: "rotateZ(0deg)" },
+        },
+        scanline: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(100%)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.6s cubic-bezier(0.16,1,0.3,1) both",
         marquee: "marquee 28s linear infinite",
+        "orbit-spin": "orbit-spin 38s linear infinite",
+        "orbit-spin-reverse": "orbit-spin-reverse 26s linear infinite",
+        scanline: "scanline 3.2s cubic-bezier(0.65,0,0.35,1) infinite",
       },
     },
   },

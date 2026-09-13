@@ -17,6 +17,11 @@ export const es = {
     headline: "Te hacemos la vida fácil.",
     subhead:
       "Excel, software, apps, páginas web y automatizaciones de IA hechas a la medida de tu negocio, no plantillas genéricas.",
+    stats: [
+      { value: 5, suffix: "", label: "líneas de producto" },
+      { value: 4, suffix: "", label: "proyectos ya entregados" },
+      { value: 2, suffix: "", label: "idiomas disponibles" },
+    ],
     searchLabel: "¿Qué querés resolver hoy?",
     searchPlaceholder: "Ej: se me pierde el control del inventario…",
     searchHint: "Escribí el problema con tus propias palabras, sin tecnicismos.",

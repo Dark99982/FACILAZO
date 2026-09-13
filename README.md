@@ -2,8 +2,31 @@
 
 Sitio de marketing de Facilazo AI: portada con buscador de "dolores de cabeza", líneas
 de producto, portafolio, precios de referencia, condiciones de uso/entrega y contacto.
-Español e inglés con selector. Construido con Next.js 14 (App Router) + Tailwind CSS,
-listo para desplegar en Vercel.
+Español e inglés con selector. Construido con Next.js 16 (App Router) + Tailwind CSS +
+GSAP + Motion, listo para desplegar en Vercel.
+
+## Dirección artística: "consola de operaciones"
+
+La experiencia se piensa como un sistema/consola futurista, no como una landing plana:
+
+- **Fondo:** navy profundo con una grilla técnica sutil y capas 3D flotantes (CSS
+  `perspective` + `rotateX`, sin Three.js — de próposito, para mantener el sitio liviano).
+- **Luz que sigue al cursor** (`components/motion/CursorGlow.tsx`) — solo en dispositivos
+  con mouse real y sin `prefers-reduced-motion`.
+- **Hero cinematográfico:** título que entra palabra por palabra (blur → nítido), panel
+  de búsqueda con marco tipo HUD y barrido de escaneo, contador animado de líneas de
+  producto / proyectos entregados / idiomas (números reales, no inventados).
+- **Líneas de producto como riel horizontal fijado** (`components/motion/HorizontalRail.tsx`,
+  GSAP + ScrollTrigger): en desktop la sección se "pinea" y las 5 líneas se recorren en
+  horizontal; en móvil se desactiva el scroll-hijack y se ve como una columna normal
+  (nunca scroll-hijack en pantallas chicas ni con mouse ausente).
+- **Tarjetas con tilt 3D real** (`components/motion/TiltCard.tsx`) en portafolio, precios
+  y contacto: se inclinan hacia el cursor con un brillo que lo sigue.
+- **Botones magnéticos** (`components/motion/MagneticButton.tsx`) en la navegación.
+- **Nav con scroll-spy** vía `IntersectionObserver` (nunca `window.addEventListener('scroll')`):
+  resalta la sección activa y cambia de transparente a blur al bajar.
+- Todo lo anterior se apaga automáticamente en táctil y con `prefers-reduced-motion`
+  (`lib/motion/useInteractionCapability.ts` es el punto único de esa decisión).
 
 ## Cómo desplegar en Vercel
 

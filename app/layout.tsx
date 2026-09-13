@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Baloo_2, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/components/LocaleProvider";
+import { CursorGlow } from "@/components/motion/CursorGlow";
 
 const baloo = Baloo_2({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${baloo.variable} ${jakarta.variable} ${mono.variable}`}>
       <body className="grain font-body antialiased">
+        <CursorGlow />
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

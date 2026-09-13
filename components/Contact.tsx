@@ -1,7 +1,9 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import { useLocale } from "./LocaleProvider";
 import { contactInfo } from "@/lib/catalog";
+import { TiltCard } from "./motion/TiltCard";
 
 function ContactCard({
   label,
@@ -14,7 +16,7 @@ function ContactCard({
   href?: string;
   comingSoonLabel: string;
 }) {
-  const content = (
+  const inner = (
     <div className="rounded-2xl border border-white/10 bg-navy-700/50 p-5 text-center transition-colors hover:border-ambar-500/40">
       <p className="text-xs font-semibold uppercase tracking-wide text-crema-300/60">{label}</p>
       <p className="mt-2 font-display text-lg font-semibold text-crema-100">
@@ -23,18 +25,22 @@ function ContactCard({
     </div>
   );
 
-  if (value && href) {
-    return (
-      <a href={href} target="_blank" rel="noreferrer" className="block">
-        {content}
-      </a>
-    );
-  }
-  return content;
+  return (
+    <TiltCard maxTilt={4}>
+      {value && href ? (
+        <a href={href} target="_blank" rel="noreferrer" className="block">
+          {inner}
+        </a>
+      ) : (
+        inner
+      )}
+    </TiltCard>
+  );
 }
 
 export function Contact() {
   const { t } = useLocale();
+  const reduce = useReducedMotion();
 
   return (
     <section id="contacto" className="mx-auto max-w-8xl px-4 py-24 sm:px-6">
@@ -45,7 +51,13 @@ export function Contact() {
         <p className="mt-3 text-base leading-relaxed text-crema-300/75">{t.contact.body}</p>
       </div>
 
-      <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.55 }}
+        className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3"
+      >
         <ContactCard
           label={t.contact.whatsapp}
           value={contactInfo.whatsapp}
@@ -63,7 +75,7 @@ export function Contact() {
           value={contactInfo.social.length > 0 ? contactInfo.social.map((s) => s.label).join(" · ") : null}
           comingSoonLabel={t.contact.comingSoon}
         />
-      </div>
+      </motion.div>
     </section>
   );
 }
