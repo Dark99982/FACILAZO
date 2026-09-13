@@ -1,0 +1,37 @@
+{
+  "name": "facilazo-ai-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "motion": "12.43.0",
+    "gsap": "3.15.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.7.0",
+    "lucide-react": "1.45.0",
+    "@radix-ui/react-slot": "1.3.3",
+    "@radix-ui/react-dialog": "1.1.23",
+    "@radix-ui/react-dropdown-menu": "2.1.24",
+    "@radix-ui/react-label": "2.1.15",
+    "@radix-ui/react-separator": "1.1.15"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3",
+    "@types/node": "20.14.15",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tailwindcss": "3.4.7",
+    "postcss": "8.5.28",
+    "autoprefixer": "10.4.19",
+    "tailwindcss-animate": "1.0.7"
+  }
+}
